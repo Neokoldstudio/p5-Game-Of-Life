@@ -39,13 +39,14 @@ function draw() {
             let x = i * resolution;
             let y = j * resolution;
             if (grid[i][j] == 1) {
-                pg.rect(x, y, resolution - 1, resolution - 1);
+                pg.rect(x, y, resolution, resolution);
             }
         }
     }
 
     // Compute next generation
     let next = make2DArray(cols, rows);
+    grid[floor(random(0,cols-1))][floor(random(0,cols-1))] = 1;
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
             let state = grid[i][j];
