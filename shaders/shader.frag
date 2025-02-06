@@ -34,7 +34,7 @@ void main() {
 
     float intensity = color.r;
     if (intensity < threshold) {
-        color.rgb = mix(vec3(0.0, 0.0, 0.0), vec3(0.5), intensity / threshold);
+        color.rgb = mix(vec3(1., 1., 1.), vec3(0.0), pow(intensity / threshold,pow(2.7,2.)));
     } else {
         color.rgb = mix(vec3(1.0, 0.5333, 0.2235), vec3(1.0, 0.8118, 0.2902), (intensity - threshold) / (1.-threshold));
     }

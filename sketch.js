@@ -1,7 +1,7 @@
 let cols, rows;
 let grid;
 let resolution = 10;
-let threshold = 0.75;
+let threshold = 0.9;
 let fps = 60;
 let alpha = 10;
 let pg; // Off-screen buffer
