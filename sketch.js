@@ -1,6 +1,7 @@
 let cols, rows;
 let grid;
 let resolution = 10;
+let threshold = 0.75;
 let fps = 60;
 let alpha = 10;
 let pg; // Off-screen buffer
@@ -46,7 +47,7 @@ function draw() {
 
     // Compute next generation
     let next = make2DArray(cols, rows);
-    grid[floor(random(0,cols-1))][floor(random(0,cols-1))] = 1;
+    grid[floor(random(0, cols - 1))][floor(random(0, cols - 1))] = 1;
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
             let state = grid[i][j];
@@ -76,7 +77,11 @@ function draw() {
 
     // Apply the shader and pass the off-screen buffer
     shader(myShader);
+    myShader.setUniform("threshold", threshold);
+    myShader.setUniform("resolution", [width, height]);
+    myShader.setUniform("texelSize", resolution);
     myShader.setUniform("tex", pg);
+
     rect(-width / 2, -height / 2, width, height);
 }
 
