@@ -1,5 +1,6 @@
 # A Generative Art Piece Based on John Conway's "Game Of Life"
 
+![piece exemple](assets/ex2.png)
 This piece of software has been made using the [p5.js](https://p5js.org/) library, as well as some GLSL shaders.
 
 ## Clone and Run the Project
